@@ -13,7 +13,7 @@ ThreeBees budget the box, map the hop, and stay for the rebuild. The bee is the 
 ## What a ThreeBee does not get
 
 - A recipe for the house next door
-- A Yellowjacket episode before there is honey that looks like a person
+
 
 ## Community
 
