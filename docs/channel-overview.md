@@ -2,7 +2,7 @@
 
 **Budget. Build. Break.** is a SoHo networking and security channel.
 
-Tagline: *Budget the build. Secure the network. Then we break it.*
+ *Budget the build. Secure the network. Then we break it.*
 
 YouTube: https://www.youtube.com/@BudgetBuildBreak
 
@@ -19,7 +19,7 @@ Codenames (Spitz, Slate, Yellowjackets, ThreeBees) stay in the series notes. The
 
 ## Audience
 
-**ThreeBees.** People standing up a home lab, a small office, or a side-business network who refuse to buy enterprise gear they do not need — and who want to see how that network fails the way a household next door would actually poke it.
+**ThreeBees.** People standing up a home lab, a small office, or a side-business network who refuse to buy enterprise gear they do not need, and who want to see how that network fails against actual threats.
 
 Also: junior SOC candidates who need a ticket, not a rack photo.
 
