@@ -37,3 +37,10 @@ What we actually did to the build and what it looked like:
 
 - Next episode this unlocks:
 - Open questions:
+
+## Repo close (required for C)
+
+- [ ] ticket.md filled
+- [ ] detections.md has host/identity + net
+- [ ] aar.md names the next control
+- [ ] YouTube description points at the topology folder, not a vibe

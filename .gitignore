@@ -16,3 +16,16 @@ venv/
 dist/
 build/
 *.log
+
+# secrets and live lab junk
+*.pem
+*.key
+id_rsa
+id_rsa.pub
+*.ovpn
+unifi_backup*
+*.pcap
+!assets/**/*.png
+credentials.json
+secrets.yaml
+wifi-pass*

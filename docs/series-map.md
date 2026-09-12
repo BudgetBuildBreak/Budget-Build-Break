@@ -3,7 +3,19 @@
 Every topology = three episodes: **A budget**, **B harden**, **C weather + IR**.
 Videos ≤ 8 minutes (4 + 4). Extra plate is this repo.
 
-Phones before money. 04 owns the air (Spitz) and the herd (MDM). 05 is the till.
+**Close the loop:** do not film the next fabric until the current C episode has a filled ticket, detections page, and AAR.
+
+Phones before money. 04 owns the air (Spitz) and the herd (MDM). 05 is the till. Those names belong *after* the desk exists on camera.
+
+## Status
+
+| Topology | Plain name | Status |
+| --- | --- | --- |
+| 01 | Desk | Open |
+| 02 | House | Locked until 01 AAR |
+| 03 | Door | Locked |
+| 04 | Air + phones | Locked |
+| 05 | Till | Locked |
 
 ## Topology 01 — desk
 
@@ -11,11 +23,11 @@ Folder: [topologies/01-ros](topologies/01-ros/)
 
 Carrier box + TL-SG108E + ThinkPad + AX17 (Parrot + Wazuh). One visibility point.
 
-| Ep | Job |
-| --- | --- |
-| 1A | Budget the desk. Packet Tracer in `assets/`. |
-| 1B | Harden. Quiet Wazuh. |
-| 1C | Willy. IR close. |
+| Ep | Job | Repo close |
+| --- | --- | --- |
+| 1A | Budget the desk. Packet Tracer in `assets/`. | BOM + do-not-buy list |
+| 1B | Harden. Quiet Wazuh. | Healthy screenshot in assets |
+| 1C | Willy. IR close. | ticket.md + detections.md + aar.md |
 
 ## Topology 02 — house
 
@@ -45,7 +57,7 @@ Path mini PC: blast bridge, Wazuh, inspect. Pi = chair. AX17 freed for 04.
 
 Folder: [topologies/04-mdm](topologies/04-mdm/)
 
-**GL-X3000 Spitz AX ($379.99)** takes the T-Mobile SIM. Carrier gateway shelves. Slate demoted to **dirty AP** (VLAN 20: IoT, guests, printers). MDM on AX17. Prepaid herd on VLAN 50.
+**GL-X3000 Spitz AX** takes the T-Mobile SIM. Carrier gateway shelves. Slate demoted to **dirty AP** (VLAN 20: IoT, guests, printers). MDM on AX17. Prepaid herd on VLAN 50.
 
 | Ep | Job |
 | --- | --- |
