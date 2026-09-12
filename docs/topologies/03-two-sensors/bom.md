@@ -3,12 +3,19 @@
 Date priced: 2026-09-11
 Currency: USD
 
-No new silicon planned. G11, SG108E, AX17, Slate already bought in 01–02.
+New silicon: one more dual-NIC mini PC. AX17 is reused, not replaced.
 
-| Item | Role | Cash this week |
-| --- | --- | --- |
-| G11 NIC2 + patch cord | Span dest | $0 if a cable is in the drawer |
-| IDS VM on G11 | Point 2 | $0 |
-| Wazuh decoder | One console | $0 |
+| Qty | Item | Role | Street | Cash | Notes |
+| --- | --- | --- | --- | --- | --- |
+| 1 | Mini PC, dual RJ45 (G11-class or cheaper dual-NIC) | Blast bridge + Wazuh + inspect | TBD ~$200–310 | TBD | Two real NICs. One dongle is not a bridge. |
+| 1 | AX17 Pro (already owned) | Honeynet on the switch | $0 | $0 | Was Wazuh in 01–02. Reimaged in 3B. |
+| 0 | Extra sensor appliance | — | $0 | $0 | Refused. |
 
-If 02C proved the USB NIC on the AX was the weak span, replace *that* dongle — do not buy a third PC.
+**Cash this episode:** price of the third mini PC + tax  
+**Carried:** Slate, G11, SG108E, ThinkPad, AX17, dongle (dongle can retire)
+
+## What we refused to buy
+
+- A rack NIDS.
+- NAT #3.
+- A fourth laptop for the decoy.

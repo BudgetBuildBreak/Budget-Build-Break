@@ -1,33 +1,64 @@
-# Topology 03 — two visibility points
+# Topology 03 — blast bridge + honeynet
 
-Mitigation of 02C. Same silicon as 02. New job: a packet tap that is not the dashboard.
+Mitigation of 02C. New mini PC sits **behind the Slate and in front of the switch**. No NAT #3. AX17 leaves the Wazuh job and becomes a decoy on the switch.
 
-## Why this fabric exists
+This honeynet is an **empty chair for wasps**, not a Yellowjacket season. No customer records. No money. If 03C needs PII honey, that is a later topology and a different gate.
 
-One feed lies when it is new. Wazuh on the AX will miss toy-class weather if alerts are not tuned. A second point on the G11 span does not make us clever. It makes a miss expensive for Leroy instead of free.
+## Roles
 
-Willy can still be loud on 01/02. Leroy is why we wait until the house exists before we add the tap — toys show up as odd clients and odd frames, not as a textbook scan.
+| Box | Job |
+| --- | --- |
+| ISP gateway | Untrusted radio. NAT #1. |
+| Slate AX | NAT #2. Office SSID. Too small to be the SIEM. |
+| **New mini PC** | Blast bridge. Wazuh. Packet inspection. Dual NIC. |
+| TL-SG108E | Inside switch |
+| ThinkPad | Host user |
+| G11 | NAS. NIC2 optional span if the bridge is not the only tap. |
+| **AX17** | Honeynet / decoy on the switch. Parrot or whatever 3B images. Not the dashboard. |
 
-## Trilogy
+## Why the path box gets Wazuh
 
-**3A Budget.** No new box unless 02C forced one. Cost is time: VM, span cable, decoder.
+Everything into the house walks through it. Logs and packets can meet on one machine without a $10 NIC and a prayer. The AX 4300U was a starter sensor. 03 is where the evidence plane grows up.
 
-**3B Harden.** G11 NIC2 = SG108E mirror dest. IDS in a VM. Alerts into Wazuh. Tune until the two feeds argue in public.
-
-**3C Weather + IR.** Leroy. Show one point quiet and the other loud, or both loud. IR close. Cookbook gets the tell.
+Packet inspection on that same box: IDS/metadata engine **feeding Wazuh**, not a second console. Bridge first. Detect second. Do not inline-break the NAS; the NAS stays on the switch, south of the bridge.
 
 ## Diagram
 
 ```
-AX17     Wazuh          visibility point 1  (host / log / agent)
-G11 VM   packet IDS     visibility point 2  (span on NIC2)
-              \
-               → alerts into Wazuh (one console)
+[ ISP box ]                    NAT #1
+    |
+[ Slate AX ]                   NAT #2  office SSID
+    |
+    | Slate LAN
+    v
+[ Mini PC NIC A ]
+[ Blast bridge + Wazuh + inspect ]     no extra NAT
+[ Mini PC NIC B ]
+    |
+[ TL-SG108E ]
+    |          |           |
+ ThinkPad     G11 NAS     AX17 honeynet
+ user                     empty chair
 ```
 
-Do not inline the NAS. Span only. See the 02 note that reserved NIC2.
+## Trilogy
+
+**3A Budget.** Second mini PC, dual NIC, same Amazon lottery. Say out loud: AX17 is no longer the SIEM.
+
+**3B Harden.** Bridge up. Wazuh moved. Inspection feeding the dashboard. AX17 rebuilt as decoy. ThinkPad still opens the G11 share.
+
+**3C Weather + IR.** Leroy / household. One feed on the path, decoy on the switch. IR close.
+
+## Two points (updated)
+
+| Point | Where |
+| --- | --- |
+| 1 | Wazuh + inspection on the blast bridge |
+| 2 | AX17 honeynet (what landed) and/or G11 NIC2 span if 3B still wants a copy off-path |
+
+Do not stand up three packet engines in 3B. Path inspect + decoy is enough. Span on G11 is spare.
 
 ## Cookbook
 
 - [BOM](bom.md)
-- [lessons.md](lessons.md) — fill after 3C
+- [lessons.md](lessons.md)
