@@ -1,3 +1,4 @@
+<img width="1792" height="1008" alt="grok-image-95de7fe6-098b-4e38-8f8a-7be653275783" src="https://github.com/user-attachments/assets/a7eb839c-a48d-4ef1-b27e-540e5d6aeecd" />
 # Wasps
 
 Fiction. The household next door. They did not build this line. They are on it anyway.
