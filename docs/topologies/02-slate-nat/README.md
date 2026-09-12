@@ -4,7 +4,7 @@ Mitigation of 01C. Trilogy: budget, harden, weather + IR.
 
 SKU lock: **GL.iNet GL-AXT1800 Slate AX** ($119) and **GMKtec G11** ($309.99).
 
-Packet IDS: **VM on the G11**, second 2.5G NIC on the span. AX17 stays Wazuh only. Details in [ids.md](ids.md).
+Packet IDS: **not this fabric.** Second 2.5G NIC exists so topology 03 has a tap. Do not stand up the VM in 2B just because the port is there.
 
 ## Why this fabric exists
 
@@ -12,11 +12,11 @@ Packet IDS: **VM on the G11**, second 2.5G NIC on the span. AX17 stays Wazuh onl
 
 ## Trilogy
 
-**2A Budget.** Slate vs staying on the brick. G11 vs “files on a laptop.” Second NIC is why the G11 wins over a one-port N150. Amazon lottery is the warranty.
+**2A Budget.** Slate vs the brick. G11 vs files on a laptop. Dual NIC is a promise, not an episode.
 
-**2B Harden.** Slate WAN into the carrier. AX17 on Slate LAN 2. SG108E on LAN 1. ThinkPad + G11 on the switch. Office SSID on the Slate. Share a folder. Optional: IDS VM up, empty / quiet.
+**2B Harden.** Slate WAN into the carrier. AX17 on Slate LAN 2. SG108E on LAN 1. ThinkPad + G11 NIC1 on the switch. Office SSID. Share a folder. Wazuh only.
 
-**2C Weather + IR.** Wasp on the new house. Wazuh is the console. IDS alerts only if they feed it.
+**2C Weather + IR.** One dashboard. If that is not enough, that sentence is the cold open for 03.
 
 ## Diagram
 
@@ -31,16 +31,16 @@ Packet IDS: **VM on the G11**, second 2.5G NIC on the span. AX17 stays Wazuh onl
     |            |
  AX17 Pro    [ TL-SG108E ]
  Wazuh only      |
-             ----+----+-------------
-             |        |            |
-        ThinkPad   G11 NIC1     G11 NIC2 (span dest)
-        host user  NAS host     IDS VM
+             ----+----
+             |       |
+        ThinkPad   G11 NIC1 NAS
+        host user  NIC2 dark → topology 03
 ```
 
 ## Cookbook
 
 - [BOM](bom.md)
-- [IDS placement](ids.md)
+- [IDS deferred](ids.md)
 - [Software / patch register](software.md)
 - [Signatures](signatures.md)
 - [IR playbook](ir-playbook.md)
