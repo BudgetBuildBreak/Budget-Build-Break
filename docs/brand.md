@@ -42,4 +42,5 @@ Gold on the 3Bee is *budget*. Gold on the jacket is *warning*. Do not mix those 
 | Jacket stripe gold | `#F5C400` |
 | Jacket black | `#111111` |
 
-If a printer shifts red toward orange, reject the proof. Red is Break.
+If a printer shifts red toward orange, reject the proof. Red is Break.<img width="1792" height="1008" alt="grok-image-6e06bc9f-8210-4709-b389-f6c124d80f9e" src="https://github.com/user-attachments/assets/9adc5396-3e02-4b8b-8783-83fdd163033f" />
+
