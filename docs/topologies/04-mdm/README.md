@@ -1,13 +1,36 @@
-# Topology 04 — MDM
+# Topology 04 — Spitz + MDM
 
-Mitigation of “phones joined the office SSID with no adult.”
+Own the air. Own the phones. Money still waits.
 
-AX17 stays on the LAN and becomes the MDM server (Headwind for Android herd, Fleet if the ThinkPad is in scope). Prepaid Androids are cattle. VLAN 50. They reach MDM + internet. They do not mount the NAS. They are not the till.
+**GL.iNet GL-X3000 Spitz AX — $379.99.** T-Mobile SIM moves here. Gateway shelves. Slate AX is no longer the edge. It becomes the dirty AP on VLAN 20 (IoT, visitors, printers).
+
+AX17 = MDM (Headwind for the Android herd; Fleet if the ThinkPad is in scope). VLAN 50. Phones reach MDM + internet. They do not mount the NAS. They are not the till.
+
+Path PC remains Wazuh. Spitz is not the SIEM.
+
+## Diagram
+
+```
+[ Spitz AX ]     SIM + office SSID + VLAN brain
+    |
+    +-- 10  ThinkPad
+    +-- 50  prepaid phones → MDM on AX17
+    +-- 30  G11
+    +-- 99  mgmt
+    +-- 40  Pi chair
+    +-- 20  Slate (dirty AP: IoT / guest / printers)
+    +-- 60  empty until 05
+         |
+    path PC on the trunk: see + deny
+```
 
 ## Trilogy
 
-4A budget time + burn phones. Pick Headwind vs Fleet by what is in the pocket.
-4B enroll. Slate SSID → 50. Software-register rows for each handset.
-4C weather on the radio. Signature + IR.
+**4A** Budget $380. Why the brick dies. Slate demoted, not dumped. MDM named.
+**4B** SIM in. Office SSID on Spitz. Slate on 20. Enroll the herd.
+**4C** Weather on our radio. IR close.
 
-MDM is not Wazuh. Do not merge the products.
+## Cookbook
+
+- [BOM](bom.md)
+- [lessons.md](lessons.md)

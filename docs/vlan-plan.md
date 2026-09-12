@@ -1,37 +1,32 @@
 # VLAN plan
 
-Paint on the SG108E. Policy on the Slate (02) then the blast bridge (03+).
-Default deny between zones. Allows are the cookbook.
-
-Do not create a VLAN on camera until a device lives in it.
+After topology 04 the paint lives on the **Spitz**. The blast bridge still denies. The SG108E still tags ports. The Slate is only the dirty AP.
 
 | ID | Zone | Hosts | First topology |
 | --- | --- | --- | --- |
 | 1 | unused | nothing | — |
 | 10 | Trusted | ThinkPad | 01 |
-| 20 | Guest / dirty | parked carrier SSID, visitors | 02 |
-| 30 | Servers | G11 NAS; path-PC mgmt if split | 02–03 |
-| 40 | Chair | Pi honeynet | 03 |
-| 50 | Phones | prepaid Androids + MDM reachability | 04 |
-| 60 | Money | Mac mini till | 05 |
-| 99 | Mgmt | Slate / SG108E / bridge UIs | 02–03 |
+| 20 | Dirty | Slate AP: IoT, guests, printers | 04 (Slate demoted) |
+| 30 | Servers | G11 NAS | 02 |
+| 40 | Chair | Pi | 03 |
+| 50 | Phones | prepaid Androids, MDM | 04 |
+| 60 | Money | till | 05 |
+| 99 | Mgmt | Spitz / Slate / SG108E / path PC UIs | 02–04 |
 
-## Allows we will say out loud
+## Allows
 
-- 10 → 30 (map the share)
+- 10 → 30 (share)
 - 10 → internet
-- 50 → internet + MDM box only
+- 50 → internet + MDM only
 - 20 → internet only
 - 40 → internet only; never 10/30/60
-- 60 → internet only (banks); never 20/40; never 10 except a filmed jump
+- 60 → internet only; never 20/40; never 10 except a filmed jump
 - 99 → from 10 only
 
-## Where tags happen
+## Radios after 04
 
-| Fabric | Mechanism |
-| --- | --- |
-| 01 | Access ports on SG108E. Carrier is not a trunk. |
-| 02 | Slate SSID → VLAN. Guest isolation on. |
-| 03+ | Bridge NIC B is the 802.1Q trunk into the SG108E. |
-
-VLANs without deny rules are paint. See episode machine C for proving a pin-hole.
+| Radio | SSID job | VLAN |
+| --- | --- | --- |
+| Spitz | Office | 10 / 50 |
+| Slate | Dirty | 20 |
+| Carrier gateway | Shelf | — |
