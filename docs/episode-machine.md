@@ -1,28 +1,13 @@
 # Episode machine
 
-Every topology is a trilogy. Then the next fabric is the mitigation.
-
-## The three beats
+Every topology is a trilogy. Next topology is the mitigation.
 
 | Ep | Name | Job |
 | --- | --- | --- |
-| A | **Budget** | What we bought, what we already owned, why this SKU, why the carrier box is a start and not a home. |
-| B | **Harden** | From scratch. Firewall on the user box. Sensor OS. Switch. Packets into Wazuh. Healthy baseline. |
-| C | **Weather + IR** | Introduce or reuse a wasp. Show why this fabric's security is thin *on this build*. Signature. Then triage, contain, eradicate, lessons learned. |
+| A | Budget | SKU, cash vs replace, why we will not stay here. Packet Tracer in the 1A gap. |
+| B | Harden | From zero. Firewall / OS / VLANs / healthy screenshot. |
+| C | Weather + IR | Wasp on *this* fabric. Signature. Triage, contain, eradicate, lessons. |
 
-The cookbook page is the close of C. Topology N+1 exists because C told the truth.
+Runtime ≤ 8 minutes. 4 + 4. If it needs a fifth minute, it is a cookbook page.
 
-## What C is allowed to be
-
-Weather is fiction (Willy, Wanda, Leroy). The camera stays on *this* trunk, *this* dashboard, *this* log line. The value is the IR close, not a second channel.
-
-## Folder layout
-
-```
-docs/topologies/NN-name/
-  README.md
-  bom.md
-  signatures.md
-  ir-playbook.md
-  lessons.md
-```
+C is signatures and the IR close. Weather is fiction.

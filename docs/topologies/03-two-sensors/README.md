@@ -1,64 +1,33 @@
-# Topology 03 — blast bridge + honeynet
+# Topology 03 — blast bridge + chair
 
-Mitigation of 02C. New mini PC sits **behind the Slate and in front of the switch**. No NAT #3. AX17 leaves the Wazuh job and becomes a decoy on the switch.
+Mitigation of 02C. Dual-NIC mini PC **behind the Slate, in front of the switch**. No NAT #3.
 
-This honeynet is an **empty chair for wasps**, not a Yellowjacket season. No customer records. No money. If 03C needs PII honey, that is a later topology and a different gate.
+Wazuh + packet inspection live here. Slate syslog points here. AX17 is freed for topology 04 MDM. **Pi** is the honeynet (empty chair, VLAN 40). Not a PII honey. Yellowjackets wait for 05.
 
 ## Roles
 
 | Box | Job |
 | --- | --- |
-| ISP gateway | Untrusted radio. NAT #1. |
-| Slate AX | NAT #2. Office SSID. Too small to be the SIEM. |
-| **New mini PC** | Blast bridge. Wazuh. Packet inspection. Dual NIC. |
-| TL-SG108E | Inside switch |
-| ThinkPad | Host user |
-| G11 | NAS. NIC2 optional span if the bridge is not the only tap. |
-| **AX17** | Honeynet / decoy on the switch. Parrot or whatever 3B images. Not the dashboard. |
-
-## Why the path box gets Wazuh
-
-Everything into the house walks through it. Logs and packets can meet on one machine without a $10 NIC and a prayer. The AX 4300U was a starter sensor. 03 is where the evidence plane grows up.
-
-Packet inspection on that same box: IDS/metadata engine **feeding Wazuh**, not a second console. Bridge first. Detect second. Do not inline-break the NAS; the NAS stays on the switch, south of the bridge.
+| ISP gateway | NAT #1 untrusted |
+| Slate AX | NAT #2, office SSID, logs → path PC |
+| Path mini PC | Blast bridge, Wazuh, inspect |
+| SG108E | Trunk from bridge, access to hosts |
+| ThinkPad | User VLAN 10 |
+| G11 | NAS VLAN 30. NIC2 optional spare span |
+| Pi | Chair VLAN 40 |
+| AX17 | Idle this fabric / prepped for MDM |
 
 ## Diagram
 
 ```
-[ ISP box ]                    NAT #1
-    |
-[ Slate AX ]                   NAT #2  office SSID
-    |
-    | Slate LAN
-    v
-[ Mini PC NIC A ]
-[ Blast bridge + Wazuh + inspect ]     no extra NAT
-[ Mini PC NIC B ]
-    |
-[ TL-SG108E ]
-    |          |           |
- ThinkPad     G11 NAS     AX17 honeynet
- user                     empty chair
+ISP → Slate → [path PC bridge + Wazuh] → SG108E
+                                    → ThinkPad
+                                    → G11
+                                    → Pi chair
 ```
 
 ## Trilogy
 
-**3A Budget.** Second mini PC, dual NIC, same Amazon lottery. Say out loud: AX17 is no longer the SIEM.
-
-**3B Harden.** Bridge up. Wazuh moved. Inspection feeding the dashboard. AX17 rebuilt as decoy. ThinkPad still opens the G11 share.
-
-**3C Weather + IR.** Leroy / household. One feed on the path, decoy on the switch. IR close.
-
-## Two points (updated)
-
-| Point | Where |
-| --- | --- |
-| 1 | Wazuh + inspection on the blast bridge |
-| 2 | AX17 honeynet (what landed) and/or G11 NIC2 span if 3B still wants a copy off-path |
-
-Do not stand up three packet engines in 3B. Path inspect + decoy is enough. Span on G11 is spare.
-
-## Cookbook
-
-- [BOM](bom.md)
-- [lessons.md](lessons.md)
+3A budget the path PC (two real RJ45s).
+3B bridge, move Wazuh, inspect into one console, Pi on 40.
+3C Leroy vs path + chair. IR close.
