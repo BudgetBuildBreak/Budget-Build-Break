@@ -2,6 +2,8 @@
 
 Public, honest, short. Update when an episode closes.
 
+About page (work history, certs, what I will not claim): [BudgetBuildBreak/Hello-World](https://github.com/BudgetBuildBreak/Hello-World)
+
 ## Stack I can defend tomorrow
 
 - SoHo switching and VLANs on a cheap managed switch
