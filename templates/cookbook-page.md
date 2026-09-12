@@ -1,15 +1,17 @@
-# Lessons — TOPOLOGY NAME
+# Lessons — TOPOLOGY NAME (short form)
 
-Three bullets per episode after it ships.
+Video close. Three bullets. The enterprise runbook is [`cookbook-enterprise.md`](cookbook-enterprise.md).
 
-## After the build
-
--
-
-## After the break
+## After the build (B)
 
 -
 
-## What we change before the next upload
+## After the break (C)
 
 -
+
+## What we change before the next topology
+
+-
+
+Runbook ID (if this C earned one): BBB-RB-
