@@ -1,3 +1,4 @@
+<img width="1792" height="1008" alt="grok-image-4c33e3fe-1745-4933-8293-301fd873bd97" src="https://github.com/user-attachments/assets/69096cbe-9c68-4fe8-be0e-96986d929049" />
 # ThreeBees
 
 The hive. Builders. Viewers.
