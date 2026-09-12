@@ -1,37 +1,28 @@
 # Episode machine
 
-Every topology is a series. Every series gets a defensive cookbook. The loop does not change when the wasp does.
+Every topology is a trilogy. Then the next fabric is the mitigation.
 
-## Order, every time
+## The three beats
 
-1. **Topology** — this fabric, this week.
-2. **Weather** — which wasp walked in. Show the object. Price class, not a haul.
-3. **Signature** — what it looked like *here*: log, DHCP name, trunk light, wireless client that does not belong.
-4. **Triage** — what still works, what is burned, what we isolate first.
-5. **Eradicate** — kill the session, the cred, the guest lease, the bad rule.
-6. **Rebuild** — bring trusted LAN back on purpose.
-7. **Lessons learned** — three bullets that land in the topology folder. That page *is* the cookbook.
+| Ep | Name | Job |
+| --- | --- | --- |
+| A | **Budget** | What we bought, what we already owned, why this SKU, why the carrier box is a start and not a home. |
+| B | **Harden** | From scratch. Firewall on the user box. Sensor OS. Switch. Packets into Wazuh. Healthy baseline. |
+| C | **Weather + IR** | Introduce or reuse a wasp. Show why this fabric's security is thin *on this build*. Signature. Then triage, contain, eradicate, lessons learned. |
 
-## Cookbook means this
+The cookbook page is the close of C. Topology N+1 exists because C told the truth.
 
-- Addressing plan and trunk
-- What healthy looks like
-- Signatures we actually captured
-- Triage order
-- Rebuild checklist
-- What changes before the next upload
+## What C is allowed to be
 
-Cookbook does not mean how to be the wasp.
+Weather is fiction (Willy, Wanda, Leroy). The camera stays on *this* trunk, *this* dashboard, *this* log line. The value is the IR close, not a second channel.
 
 ## Folder layout
 
 ```
-docs/topologies/NN-shortname/
-  README.md          # diagram, addressing, Packet Tracer pointer
-  bom.md             # priced at a date
-  signatures.md      # what we saw
-  ir-playbook.md     # triage → eradicate → rebuild
-  lessons.md         # the cookbook page
+docs/topologies/NN-name/
+  README.md
+  bom.md
+  signatures.md
+  ir-playbook.md
+  lessons.md
 ```
-
-Packet Tracer and screenshots live in `assets/` and are linked from the topology README.

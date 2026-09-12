@@ -1,61 +1,39 @@
 # Topology 02 — Slate AX double NAT + GMKtec G11 NAS
 
-Episode 2. Intro taught the rhythm. This is the first house.
+Mitigation of 01C. Same trilogy: budget, harden, weather + IR.
 
-SKU lock: **GL.iNet GL-AXT1800 Slate AX** ($119) and **GMKtec G11** ($309.99). Both Amazon. If they fail, that is seasoning.
+SKU lock: **GL.iNet GL-AXT1800 Slate AX** ($119) and **GMKtec G11** ($309.99).
 
-## Why this piece exists
+## Why this fabric exists
 
-Carrier box stays dumb. Slate is the first brain we configure. G11 is the first disk that matters. Double NAT is drawn, named, and left in place.
+01 lived on a box we do not control. 02 puts a brain we configure in front of the files. Slate Wi-Fi is the first office SSID. Carrier SSID gets parked. Double NAT is named, not hidden.
+
+## Trilogy
+
+**2A Budget.** Slate vs staying on the brick. G11 vs “files on a laptop.” Amazon lottery is the warranty.
+
+**2B Harden.** Slate WAN into the carrier. AX17 on Slate LAN 2. SG108E on LAN 1. ThinkPad + G11 on the switch. Office SSID on the Slate. Share a folder. Wazuh still sees the talk.
+
+**2C Weather + IR.** Wasp on the *new* house. Close with triage → lessons that justify topology 03.
 
 ## Diagram
 
 ```
-[ ATT / T-Mobile / Verizon home internet box ]     NAT #1
-                      |
-                      v
-              [ Slate AX WAN ]
-              [ Slate AX LAN ]                     NAT #2
-                 |           |
-              LAN 2       LAN 1
-                 |           |
-            AX17 Pro      [ TL-SG108E ]
-            Wazuh            |
-                         ----+----
-                         |       |
-                    ThinkPad   GMKtec G11
-                    host user  NAS / files
+[ ISP home internet box ]                      NAT #1  (untrusted)
+         |
+         v
+[ Slate AX WAN ]
+[ Slate AX LAN ]                               NAT #2  (ours)
+    |            |
+  LAN 2        LAN 1
+    |            |
+ AX17 Pro    [ TL-SG108E ]
+ Parrot+Wazuh    |
+             ----+----
+             |       |
+        ThinkPad   GMKtec G11
+        host user  NAS
 ```
-
-## Roles
-
-| Device | Job |
-| --- | --- |
-| ISP gateway | Radio. NAT #1. |
-| Slate AX | NAT #2. First box we configure. |
-| AX17 + $10 NIC | Wazuh on Slate LAN 2 |
-| TL-SG108E | Inside switch |
-| ThinkPad | Host user |
-| GMKtec G11 | NAS / file server |
-
-## Addressing (fill after first boot)
-
-| Hop | Typical until measured |
-| --- | --- |
-| Slate WAN | RFC1918 from the carrier |
-| Slate LAN | often 192.168.8.0/24 |
-| ThinkPad / G11 | DHCP from Slate, then pin the NAS |
-
-Traceroute from the ThinkPad should show two private hops. That shot is the episode.
-
-## Episode shape
-
-1. Slate WAN into the carrier.
-2. AX17 on Slate LAN 2.
-3. SG108E on Slate LAN 1.
-4. ThinkPad + G11 on the switch.
-5. Traceroute. Two NATs. Named.
-6. Share a folder on the G11. ThinkPad opens it. Wazuh notes the talk.
 
 ## Cookbook
 

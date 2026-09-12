@@ -1,15 +1,18 @@
-# Topology 01 — Carrier box, switch, user, Wazuh on a span
+# Topology 01 — Carrier box, switch, two laptops
 
-Folder name is still `01-ros`. Lesson is still the stick. Roles as of 2026-09-11:
+Three episodes. Then we leave this fabric on purpose.
 
-- ThinkPad = host user (VLAN 10)
-- AX17 Pro = Wazuh, USB NIC on the SG108E mirror port
+- ThinkPad = host user (VLAN / port 2)
+- AX17 Pro = Wazuh on Parrot, USB NIC on the SG108E span (port 3)
+- ISP gateway = start, not home
 
-Status: BOM filled. First episodes are cable + switch UI + a quiet dashboard.
+## Trilogy
 
-## Why this piece exists
+**1A Budget.** The two laptops are already on the desk — still walk the specs and the used-vs-new number so bees can copy the buy. Why TL-SG108E at $28. Why a carrier home box is episode 1 and not episode 12.
 
-Absolute basics. Internet you already pay for. Two laptops you already own. A $28 switch that can copy a port. A $10 dongle because the sensor has no RJ45. Build from here.
+**1B Harden.** Fresh images. Firewall on the ThinkPad. Parrot on the AX17. Switch VLANs + mirror. Packets into Wazuh. Screenshot of healthy.
+
+**1C Weather + IR.** Willy's first walk-on. Show why this security is thin *here*. Then triage, contain, eradicate, lessons learned. Those lessons are why 02 exists.
 
 ## Diagram
 
@@ -21,31 +24,16 @@ Absolute basics. Internet you already pay for. Two laptops you already own. A $2
         [ TP-Link TL-SG108E ]
            |              |
         port 2          port 3  (mirror dest)
-        VLAN 10         span
            |              |
       ThinkPad         AX17 Pro + $10 USB NIC
-      host user        Wazuh
+      host user        Parrot + Wazuh
                          |
-                      Wi-Fi to gateway (mgmt only)
+                      Wi-Fi to gateway (mgmt)
 ```
-
-## Addressing
-
-Write real leases after first boot. Do not invent 10.10.10.0 until the carrier agrees.
-
-| Role | Device | Path |
-| --- | --- | --- |
-| User | ThinkPad | DHCP on port 2 |
-| Sensor mgmt | AX17 | Carrier Wi-Fi |
-| Sensor sniff | AX17 USB NIC | no address required on the span |
-| Switch UI | SG108E | from the ThinkPad |
-
-## BOM
-
-[bom.md](bom.md) — cash this week **$37.98** (switch + dongle).
 
 ## Cookbook
 
+- [BOM](bom.md)
 - [Signatures](signatures.md)
 - [IR playbook](ir-playbook.md)
 - [Lessons](lessons.md)
