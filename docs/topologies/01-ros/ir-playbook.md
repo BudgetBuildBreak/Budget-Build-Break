@@ -1,7 +1,5 @@
 # IR playbook — Topology 01 RoS
 
-Civilian loop. Same words every episode.
-
 ## Triage
 
 - Is VLAN 10 still talking to the gateway?
