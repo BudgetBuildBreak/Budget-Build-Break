@@ -11,4 +11,5 @@ Until 05C, a Yellowjacket episode is cosplay.
 
 Tokenize the live path. Deidentify the long path. Collect less.
 
-No cookbook for breaking a tokenizer. No customer-record honeynet on the Pi. The Pi is a wasp chair.
+<img width="1792" height="1008" alt="grok-image-6e06bc9f-8210-4709-b389-f6c124d80f9e" src="https://github.com/user-attachments/assets/8baf582e-5d1f-43ca-bdae-8e352be931c3" />
+
