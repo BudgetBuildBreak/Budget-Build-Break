@@ -5,10 +5,10 @@ Working notes. Change them when the lab changes.
 ## Design rules
 
 - Every box has a job you can say in one sentence.
-- If two boxes do the same job, one of them is gone.
+- If two boxes do the same job, redundancy needs to prove value.
 - Guest / IoT never share a broadcast domain with trusted clients.
 - Admin interfaces are not on the same VLAN as the living-room TV.
-- Backups are not “a disk in the same rack as the server.”
+- Backups are stored in 3 places.
 
 ## Budget rules
 
