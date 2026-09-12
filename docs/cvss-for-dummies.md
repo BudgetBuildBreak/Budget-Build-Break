@@ -12,7 +12,7 @@ We still decide if it matters on *this* fabric.
 
 ## The number
 
-| Score | Words | Kid words |
+| Score | Level | Importance |
 | --- | --- | --- |
 | 0.0 | None | No hole |
 | 0.1 – 3.9 | Low | Band-Aid |
